@@ -89,8 +89,9 @@ figure.foto-legenda figcaption{
 	color: white;
 	padding: 10px; /*espaçamento entre as bordas*/
 	box-sizing: border-box; /* um box dentro da borda */
-	transition: opacity: 1s;
+	transition:1s;
 }
+
 figure.foto-legenda:hover figcaption {
 	opacity: 1;
 }
