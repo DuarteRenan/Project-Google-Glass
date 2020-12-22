@@ -9,32 +9,37 @@
 	<!-- as cores em html podem ser tratadas de  diferentes formas: pelo codigo "#112233", pelos niveis de vermelho verde e azul "rgb(255,233,24);" e pelo nivel de brilho, saturação e luminosidade. Ao final de cada um, é possivel editar o canal alpha, que transforma a opacidade/transparência, podendo ir de 0 a 1. Sendo 0 transparente e 1 totalmente visivel.!-->
 
 	<link rel="stylesheet" href="css/estilo.css" />
-</head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script type="text/javascript" src="_javascript/funcoes.js"></script>
+</head>
 
 <body>
 	<div id="interface" class="container">
 		<header id="cabecalho">
-			<hgroup>
-				<h1>Google Glass</h1>
-				<h2>A revolução do Google está chegando</h2>
-			</hgroup>
-
-			<!-- <img id="icone" src="_imagens/glass-oculos-preto-peq.png"> -->
-			<!-- <nav id="menu">
-				<!--tag usada pra menus!-->
+			<nav id="menu"><!--tag usada pra menus!-->
+				<h1>Menu Principal</h1>
+				
 				<!-- a tag <ol> e <ul> servem para criar listas. OL lista ordenada e UL desordenada. Cada item da lista deve ser um <li> A lista ordenada pode ter tipo numerico, letras e algarismos romanos!-->
-				<!-- <h1>Menu Principal</h1>
+					<!--  Botão do Menu Hamburguer  -->
+					<input type="checkbox" id="check">
+					<label for="check" class="checkbtn">
+						<i class="fa fa-bars"></i>
+					</label>
+
+				<label class="logo">Google Glass</label>
 				<ul type="disc" onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')">
-					<li onmouseover="mudaFoto('_imagens/home.png')"><a href="index.html">Home</a></li>
+					<li  class="active" fonmouseover="mudaFoto('_imagens/home.png')"><a class="active" href="index.html">Home</a></li>
 					<li onmouseover="mudaFoto('_imagens/especificacoes.png')"><a href="specs.html">Especificações</a>
 					</li>
 					<li onmouseover="mudaFoto('_imagens/fotos.png')"><a href="fotos.html">Fotos</a></li>
 					<li onmouseover="mudaFoto('_imagens/multimidia.png')"><a href="multimidia.html">Multimídia</a></li>
 					<li onmouseover="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
 				</ul>
-			</nav> --> 
+			</nav> 
+			
+
+			<img id="icone" src="_imagens/glass-oculos-preto-peq.png">
+			
 		</header> <!-- escrever &nbs; significa "Non-breaking space", ou seja é um espaço em branco !-->
 		<!-- a tag <br> serve para quebrar/pular linha!-->
 
@@ -157,6 +162,7 @@
 		</footer>
 
 	</div>
+	<script type="text/javascript" src="_javascript/funcoes.js"></script>
 </body>
 
 </html>
