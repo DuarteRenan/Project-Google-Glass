@@ -10,13 +10,26 @@ body {
 	background-color: #dddddd;
 	color: rgba(0, 0, 0, 1.0);
 }
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:2fr auto 2fr;
+    grid-gap: 2%;
+    grid-template-areas:
+    "h h h h h h h"
+    "s s s s a a a"
+	"f f f f f f f";
+
+
+}
 
 div#interface {
-	width:  900px;
+    width: 98%;
+    height: 100%;
 	background-color: white;
-	margin: -20px auto 0px auto; /*cima,direita,baixo e esquerda*/
 	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
-	padding: 10px;
+	margin: -1% 0 0 0;
+	padding: 1%;
 }
 
 p{
@@ -34,32 +47,16 @@ a:hover{
 }
 
 header#cabecalho img#icone{
-	position: absolute;
-	left: 880px;
-	top: 40px;
+	position: sticky;
+	float: right;
+	margin: 1%;
+	
 }
 
 header#cabecalho {
-	border-bottom: 1px #606060 solid;
-	height: 150px;
-	background: url("../_imagens/glass-logo-peq.jpg") no-repeat 0px 80px;
+	height: 80px;
+	grid-area: h;
 }
- header#cabecalho h1{
- 	font-family: 'Titillium Web', sans-serif;
- 	font-size: 30px;
- 	color: #606060;
- 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
- 	padding: 0px;
- 	margin-bottom: 0px;
- }
-
- header#cabecalho h2{
- 	font-family: Arial, sans-serif;
- 	color: #888888;
- 	font-size: 15pt;
- 	padding: 0px;
- 	margin-top: 0px;
- }
 
 /* Formatação de imagens com legendas*/
 
@@ -96,56 +93,82 @@ figure.foto-legenda:hover figcaption {
 	opacity: 1;
 }
 /* Formatação do menu */
-nav#menu {
+
+.checkbtn{
+	font-size: 2rem;
+	color: white;
+	cursor:pointer;
+	padding: 15px;
+	margin: auto;
+	display: none;
+}
+#check{
+	display: none;
+}
+
+label.logo{
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 2rem;
+ 	color: white;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+	font-weight: bold;
+	padding-left: 1%;
+}
+
+nav {
 	display: block;
+	background-color:#cecece;
+	height: 80px;
+	width: 100%;
+	box-sizing: border-box;
+	padding:10px;
+	margin-top:-1%;
+
 }
 
 
-nav#menu ul{
+nav ul{
+	float: right;
 	list-style: none;
 	text-transform: uppercase;
-	position: absolute; /*absoluto, fica por cima de tudo, relative
-	é relacionado a dentro do espaço do nav */
-	top: -20px;
-	left: 500px;
+	display: block;
+	padding: 0;
+	margin-top:1%;
+
 }
 
-nav#menu li{
+nav li{
 	display: inline-block;
-	background-color: #dddddd;
-	padding: 10px; /*espaço dentro do objeto*/
-	margin: 1px;/*espaço fora do objeto*/
 	transition: background-color 0.55s;
-
+	padding: 10px;
+	
 }
 
-nav#menu li:hover{
-	background-color: #606060;
+nav li:hover, li.active {
+	background-color:rgba(0, 0, 0, 0.116);
 	transition: 0.55s;
 }
 
 
-nav#menu h1{
+nav h1{
 	display: none;
 }
 
-nav#menu a{
+nav a{
 	color: black;
 	text-decoration: none;
 
 }
 
-nav#menu a:hover{
+nav a:hover, a.active{
 	color: white;
+	text-decoration: none;
 }
 
-
 section#corpo {
-	display: block;
-	width: 500px;
-	float: left;
-	border-right: 1px solid #606060;
-	padding-right: 20px;
+	display: flex;
+	width: 100%;
+    grid-area: s;
 }
 
 article#noticia-principal h2{
@@ -223,13 +246,12 @@ table#tabelaspec caption span{
 }
 
 aside#lateral {
-	display: block;
-	width: 350px;
-	float: right;
+	display:block;
+	width: auto;
 	background-color: #dddddd;
-	margin-top: 10px;
 	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-	padding:10px; 
+    padding:10px;
+    grid-area: a; 
 }
 
 aside#lateral h1{
@@ -248,8 +270,11 @@ aside#lateral h2{
 }
 
 footer#rodape {
+	height: 150px;
 	clear: both; /* o clear both limpa o espaço */
-	border-top: 1px solid #606060;
+    border-top: 1px solid #606060;
+    grid-area:f;
+    
 
 }
 footer#rodape p{
@@ -260,10 +285,65 @@ footer#rodape a{
 	color: #606060;
 }
 
-/* iframe.video{
-	position: relative;
-	width: auto;
-	height: auto;
-	padding: 50pt;
-	margin-left: 500px;
-} */
+@media only screen and (max-width: 845px ){
+	.checkbtn{
+		display:inline-flex;
+	}
+	label.logo{
+		float:right;
+		display: inline-flex;
+	}
+	nav ul{
+		position:fixed;
+		display: block;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(116, 116, 116, 0.637);
+		left:-110%;
+		text-align: center;
+		z-index: 10;
+		transition: all .5s;
+		
+	}
+	
+	nav ul li{
+		display: block;
+		padding:2rem 0 2rem 0;
+	}
+	nav ul li a{
+		font-size:2rem;
+	}
+
+	#check:checked ~ ul{
+		left:0;
+	}
+
+	img#icone{
+		display: none;
+	}
+
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows:  2fr auto auto auto auto auto auto auto 2fr;
+        grid-template-areas: 
+        "h"
+        "s"
+        "a"
+        "f";
+    }
+    #interface{
+		height: 100%;
+		width: 100%;
+    }
+    header#cabecalho {
+            grid-area:h;
+    }
+    section#corpo {
+        grid-area:s;
+    }
+
+    aside#lateral{
+        grid-area:a;
+    }
+
+}
